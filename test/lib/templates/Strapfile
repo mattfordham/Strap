@@ -1,0 +1,16 @@
+set :db_name, "strap_tester"
+set :db_user, Strap::Test::MYSQL_USER
+set :db_password, Strap::Test::MYSQL_PASSWORD
+set :db_socket, Strap::Test::MYSQL_SOCKET
+set :db_host, Strap::Test::MYSQL_HOST
+set :db_port, Strap::Test::MYSQL_PORT
+set :source_repo, Strap::Test::SOURCE_REPO
+set :destination_repo, Strap::Test::DESTINATION_REPO
+
+rename_file "old_name", "new_name"
+
+change_permissions 0777, "change_permissions"
+
+after_bootstrap do
+  test_method
+end

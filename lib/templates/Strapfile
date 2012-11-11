@@ -1,0 +1,42 @@
+## REPO SETTINGS
+## ---------------------------
+## Source repo is required. Repo will be cloned into new project.
+
+set :source_repo, ""
+
+## If 'destination_repo' is set, Strap will initialize a new Git repo
+## and push to specificed remote destination.
+# set :destination_repo, ""
+
+
+## DATABASE SETTINGS
+## ---------------------------
+## If you set at least 'db_name', 'db_user', and 'db_password', Strap
+## will attempt to create a database for you.
+
+# set :db_name, ""
+# set :db_user, ""
+# set :db_password, ""
+# set :db_socket, ""
+# set :db_host, ""
+# set :db_port, ""
+
+
+## FILE UTILITIES
+## ---------------------------
+
+## Use this to rename a file before it gets commited to new repo
+# rename_file "path/to/old_name", "path/to/new_name"
+
+## Use this to change permissions of a file before it gets commited
+# change_permissions 0777, "change_permissions"
+
+
+## CUSTOM COMMANDS
+## ---------------------------
+## Use after_bootstrap to execute any custom Ruby code after the
+## bootstrap process
+
+after_bootstrap do
+  # Do something using Ruby
+end
