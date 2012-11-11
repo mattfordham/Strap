@@ -5,7 +5,7 @@
 set :source_repo, ""
 
 ## If 'destination_repo' is set, Strap will initialize a new Git repo
-## and push to specificed remote destination.
+## and push to specified remote destination.
 # set :destination_repo, ""
 
 
@@ -21,14 +21,17 @@ set :source_repo, ""
 # set :db_host, ""
 # set :db_port, ""
 
+## If you specify an SQL file below, it'll be imported into your new DB.
+# set :sql, ""
+
 
 ## FILE UTILITIES
 ## ---------------------------
 
-## Use this to rename a file before it gets commited to new repo
+## Use this to rename a file before it gets committed to new repo
 # rename_file "path/to/old_name", "path/to/new_name"
 
-## Use this to change permissions of a file before it gets commited
+## Use this to change permissions of a file before it gets committed
 # change_permissions 0777, "change_permissions"
 
 
