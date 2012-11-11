@@ -1,4 +1,4 @@
-test/test_config.rb
+test/test_constants.rb
 
 *.gem
 *.rbc
