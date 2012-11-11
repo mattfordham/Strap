@@ -7,6 +7,7 @@ describe Strap::Config do
   before do
     @path = "test_path"
     File.new("old_name", "w")
+    File.new("old_name_2", "w")
     File.new("change_permissions", "w")
     @core = Strap::Core.new
     @core.create_project_directory(@path)
@@ -15,7 +16,9 @@ describe Strap::Config do
   
   after do 
     FileUtils.remove_file("old_name") if File.file?("old_name")
+    FileUtils.remove_file("old_name_2") if File.file?("old_name_2")
     FileUtils.remove_file("new_name") if File.file?("new_name")
+    FileUtils.remove_file("new_name_2") if File.file?("new_name_2")
     FileUtils.remove_file("change_permissions") if File.file?("change_permissions")
     FileUtils.remove_dir(@path) if File.directory?(@path)
   end
@@ -41,11 +44,20 @@ describe Strap::Config do
   it "should rename a file" do
     File.file?("old_name").must_equal true
     @config = Strap::Config.new("test/lib/templates/#{Strap::CONFIG_FILENAME}")
+    @config.run_rename_files
     File.file?("new_name").must_equal true
+  end
+  
+  it "should rename multiple files" do
+    File.file?("old_name_2").must_equal true
+    @config = Strap::Config.new("test/lib/templates/#{Strap::CONFIG_FILENAME}")
+    @config.run_rename_files
+    File.file?("new_name_2").must_equal true
   end
   
   it "should change file permissions" do
     @config = Strap::Config.new("test/lib/templates/#{Strap::CONFIG_FILENAME}")
+    @config.run_change_permissions
     File.stat("change_permissions").mode.must_equal 33279
   end
   

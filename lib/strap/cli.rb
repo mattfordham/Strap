@@ -56,6 +56,9 @@ module Strap
                               config.db_port, 
                               config.db_host)
       
+      config.run_rename_files
+      config.run_change_permissions
+      
       core.commit_to_repo(config.destination_repo)
       
       config.run_after_bootstrap
