@@ -1,5 +1,3 @@
-require 'debugger'
-
 module Strap
   
   class Config

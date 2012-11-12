@@ -114,7 +114,7 @@ he shared got me thinking. Thanks Carl! https://bitbucket.org/cwcrawley/eeci-tal
 ## To-do
 
 * Add some more tests for CLI commands
-* Figure out a way to mock file system actions in tests, the files don't actually have to be created
+* Figure out a way to mock file system actions in tests, so the files don't actually have to be created
 * Test in environments other than Mac OSX.
 
 ## Contributing
