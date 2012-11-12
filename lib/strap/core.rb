@@ -92,7 +92,7 @@ module Strap
         output "- Database already exists", :error
       else
         mysql.query("CREATE DATABASE #{db_name}")
-        mysql.list_dbs.include?(db_name) ? output("Database created") : output("Error creating database", :error)
+        mysql.list_dbs.include?(db_name) ? output("- Database created") : output("- Error creating database", :error)
       end
     end
     
