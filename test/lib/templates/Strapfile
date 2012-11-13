@@ -10,6 +10,8 @@ set :destination_repo, Strap::Test::DESTINATION_REPO
 rename_file "old_name", "new_name"
 rename_file "old_name_2", "new_name_2"
 
+replace_text "search", "replace me!", "I'm replaced!"
+
 change_permissions 0777, "change_permissions"
 
 after_bootstrap do

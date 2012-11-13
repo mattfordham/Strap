@@ -31,6 +31,9 @@ set :source_repo, ""
 ## Use this to rename a file before it gets committed to new repo
 # rename_file "path/to/old_name", "path/to/new_name"
 
+## Use this to search and replace text within a file
+# replace_text "path/to/file", "text to replace", "replacement text"
+
 ## Use this to change permissions of a file before it gets committed
 # change_permissions 0777, "change_permissions"
 

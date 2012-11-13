@@ -9,6 +9,9 @@ describe Strap::Config do
     File.new("old_name", "w")
     File.new("old_name_2", "w")
     File.new("change_permissions", "w")
+    File.open("search", "w") do |file| 
+      file.puts "replace me!"
+    end
     @core = Strap::Core.new
     @core.create_project_directory(@path)
     @core.create_config(@path)
@@ -20,6 +23,7 @@ describe Strap::Config do
     FileUtils.remove_file("new_name") if File.file?("new_name")
     FileUtils.remove_file("new_name_2") if File.file?("new_name_2")
     FileUtils.remove_file("change_permissions") if File.file?("change_permissions")
+    FileUtils.remove_file("search") if File.file?("search")
     FileUtils.remove_dir(@path) if File.directory?(@path)
   end
   
@@ -59,6 +63,14 @@ describe Strap::Config do
     @config = Strap::Config.new("test/lib/templates/#{Strap::CONFIG_FILENAME}")
     @config.run_change_permissions
     File.stat("change_permissions").mode.must_equal 33279
+  end
+  
+  it "should search and replace within file" do
+    File.file?("search").must_equal true
+    @config = Strap::Config.new("test/lib/templates/#{Strap::CONFIG_FILENAME}")
+    @config.run_replace
+    has_replaced_text = open("search") { |f| f.grep(/I'm replaced/) } 
+    has_replaced_text.length.must_equal 1
   end
   
 end
