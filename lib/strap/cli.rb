@@ -62,6 +62,8 @@ module Strap
       core.commit_to_repo(config.destination_repo)
       
       config.run_after_bootstrap
+      
+      say "Strap project bootstrapped!. Happy coding :)"
     end  
     
   end
