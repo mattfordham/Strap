@@ -44,7 +44,7 @@ module Strap
     end
     
     def clone_repo(repo, directory=".")
-      if !repo.empty? && !File.exists?("#{directory}/.git")
+      if !repo.nil? && !File.exists?("#{directory}/.git")
         output "- Cloning source repo"
         clone = system("cd #{directory} && git clone #{repo} strap_temp")
         unless clone
@@ -63,7 +63,7 @@ module Strap
     end
     
     def commit_to_repo(repo, directory=".", force=false)
-      if !repo.empty?
+      if !repo.nil?
         commit = system("cd #{directory} && git init . && git add -A && git commit -m 'Initial commit from Strap'")
         if commit
           output "- Git repo initialized"
@@ -82,7 +82,7 @@ module Strap
     end
     
     def create_database(db_user, db_password, db_socket=nil, db_name=nil, db_port=nil, db_host=nil)
-      if db_user.empty? and db_password.empty? and db_name.empty?
+      if db_user.nil? and db_password.nil? and db_name.nil?
         return false
       end
       mysql = Mysql::new(db_host, db_user, db_password, nil, db_port, db_socket)
@@ -97,7 +97,7 @@ module Strap
     end
     
     def import_to_database(sql, db_user, db_password, db_socket=nil, db_name=nil, db_port=nil, db_host=nil)
-      if db_user.empty? and db_password.empty? and db_name.empty? and sql.empty?
+      if db_user.nil? and db_password.nil? and db_name.nil? and sql.nil?
         return false
       end
       import = system("mysql -u#{db_user} -p#{db_password} -S#{db_socket} #{db_name} < #{sql}")
