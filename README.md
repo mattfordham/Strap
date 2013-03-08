@@ -34,51 +34,53 @@ to a remote repo, if one was specified.
 After running `strap init PATH`, you'll need to edit the project's Strapfile before running `strap go`. The Strapfile is where 
 you tell Strap what to do. All the options available to you are described in the default Strapfile:
 
-    ## REPO SETTINGS
-    ## ---------------------------
-    ## Source repo is required. Repo will be cloned into new project.
+```ruby
+## REPO SETTINGS
+## ---------------------------
+## Source repo is required. Repo will be cloned into new project.
 
-    set :source_repo, ""
+set :source_repo, ""
 
-    ## If 'destination_repo' is set, Strap will initialize a new Git repo
-    ## and push to specified remote destination.
-    # set :destination_repo, ""
-
-
-    ## DATABASE SETTINGS
-    ## ---------------------------
-    ## If you set at least 'db_name', 'db_user', and 'db_password', Strap
-    ## will attempt to create a database for you.
-
-    # set :db_name, ""
-    # set :db_user, ""
-    # set :db_password, ""
-    # set :db_socket, ""
-    # set :db_host, ""
-    # set :db_port, ""
-
-    ## If you specify an SQL file below, it'll be imported into your new DB.
-    # set :sql, ""
+## If 'destination_repo' is set, Strap will initialize a new Git repo
+## and push to specified remote destination.
+# set :destination_repo, ""
 
 
-    ## FILE UTILITIES
-    ## ---------------------------
+## DATABASE SETTINGS
+## ---------------------------
+## If you set at least 'db_name', 'db_user', and 'db_password', Strap
+## will attempt to create a database for you.
 
-    ## Use this to rename a file before it gets committed to new repo
-    # rename_file "path/to/old_name", "path/to/new_name"
+# set :db_name, ""
+# set :db_user, ""
+# set :db_password, ""
+# set :db_socket, ""
+# set :db_host, ""
+# set :db_port, ""
 
-    ## Use this to change permissions of a file before it gets committed
-    # change_permissions 0777, "change_permissions"
+## If you specify an SQL file below, it'll be imported into your new DB.
+# set :sql, ""
 
 
-    ## CUSTOM COMMANDS
-    ## ---------------------------
-    ## Use after_bootstrap to execute any custom Ruby code after the
-    ## bootstrap process
+## FILE UTILITIES
+## ---------------------------
 
-    after_bootstrap do
-      # Do something using Ruby
-    end
+## Use this to rename a file before it gets committed to new repo
+# rename_file "path/to/old_name", "path/to/new_name"
+
+## Use this to change permissions of a file before it gets committed
+# change_permissions 0777, "change_permissions"
+
+
+## CUSTOM COMMANDS
+## ---------------------------
+## Use after_bootstrap to execute any custom Ruby code after the
+## bootstrap process
+
+after_bootstrap do
+  # Do something using Ruby
+end
+```
 
 At the very least, you'll need to set a source repo (otherwise there really isn't any point to using the tool). 
 
