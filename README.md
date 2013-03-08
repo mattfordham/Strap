@@ -7,15 +7,7 @@ specified repo into a new project directory, do some stuff*, initialize a new Gi
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-    gem 'strap'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
+Run this command to install
 
     $ gem install strap
 
