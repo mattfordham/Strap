@@ -15,7 +15,7 @@ Run this command to install
 
 ### Bootstrapping a new project
 
-To bootstrap a new project, execute:
+To initialize a new project, execute:
 
     $ strap init path/to/project
     
